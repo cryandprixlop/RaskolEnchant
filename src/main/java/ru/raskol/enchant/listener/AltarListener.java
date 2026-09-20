@@ -94,7 +94,7 @@ public final class AltarListener implements Listener {
             p.spawnParticle(Particle.ENCHANT, p.getLocation().add(0, 1, 0), 40, 0.5, 0.5, 0.5);
         } else {
             p.playSound(p.getLocation(), Sound.ENTITY_VILLAGER_NO, 1.0f, 0.8f);
-            p.spawnParticle(Particle.SMOKE_LARGE, p.getLocation().add(0, 1, 0), 15, 0.3, 0.3, 0.3);
+            p.spawnParticle(Particle.LARGE_SMOKE, p.getLocation().add(0, 1, 0), 15, 0.3, 0.3, 0.3);
         }
         p.sendMessage(a.message);
     }
