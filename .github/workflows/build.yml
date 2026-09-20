@@ -16,6 +16,10 @@ jobs:
           cache: maven
       - name: Build
         run: mvn -B -ntp clean package
+      - name: Verify jar contents
+        run: |
+          ls -la target/
+          jar tf target/RaskolEnchant-1.0.0.jar | head -30
       - uses: actions/upload-artifact@v4
         with:
           name: RaskolEnchant-jar
