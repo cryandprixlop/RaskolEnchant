@@ -3,9 +3,11 @@ package ru.raskol.enchant;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 import ru.raskol.enchant.command.RenchantCommand;
+import ru.raskol.enchant.crafting.RecipeRegistrar;
 import ru.raskol.enchant.enchant.EnchantLogic;
 import ru.raskol.enchant.items.EnchantItems;
 import ru.raskol.enchant.listener.AltarListener;
+import ru.raskol.enchant.listener.AnvilListener;
 
 public final class RaskolEnchant extends JavaPlugin {
 
@@ -27,6 +29,10 @@ public final class RaskolEnchant extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(
                 new AltarListener(this, enchantItems, enchantLogic), this);
+        getServer().getPluginManager().registerEvents(
+                new AnvilListener(this), this);
+
+        RecipeRegistrar.register(this, enchantItems);
 
         getLogger().info("RaskolEnchant v" + getDescription().getVersion()
                 + " включён. Книга=" + getConfig().getDouble("materials.book.chance", 30.0)
